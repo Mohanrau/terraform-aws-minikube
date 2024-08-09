@@ -157,11 +157,11 @@ kubeadm init --config /tmp/kubeadm.yaml
 export KUBECONFIG=/etc/kubernetes/admin.conf
 
 # Install calico
-kubectl create -f https://raw.githubusercontent.com/scholzj/terraform-aws-minikube/master/calico/calico-operator.yaml
-kubectl create -f https://raw.githubusercontent.com/scholzj/terraform-aws-minikube/master/calico/calico-cr.yaml
+kubectl create -f https://raw.githubusercontent.com/mohanrau/terraform-aws-minikube/master/calico/calico-operator.yaml
+kubectl create -f https://raw.githubusercontent.com/mohanrau/terraform-aws-minikube/master/calico/calico-cr.yaml
 
 # Instal AWS Cloud Provider
-kubectl create -f https://raw.githubusercontent.com/scholzj/terraform-aws-minikube/master/aws-cloud-provider/aws-cloud-provider.yaml
+kubectl create -f https://raw.githubusercontent.com/mohanrau/terraform-aws-minikube/master/aws-cloud-provider/aws-cloud-provider.yaml
 
 # Wait for the AWS Cloud Provider to be running
 while [[ $(kubectl get pod -l k8s-app=aws-cloud-controller-manager -n kube-system -o name | wc -c) -eq 0 ]]; do

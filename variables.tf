@@ -1,20 +1,25 @@
 variable "aws_region" {
   description = "Region where Cloud Formation is created"
-  default     = "eu-central-1"
+  default     = "ap-southeast-1"
 }
 
 variable "cluster_name" {
   description = "Name of the AWS Minikube cluster - will be used to name all created resources"
+  default = "easyploy"
 }
 
 variable "tags" {
   description = "Tags used for the AWS resources created by this template"
   type        = map(string)
+  default     = {
+    easyer = "terraform"
+  }
 }
 
 variable "addons" {
   description = "list of YAML files with Kubernetes addons which should be installed"
   type        = list(string)
+  default = ["dashboard"]
 }
 
 variable "aws_instance_type" {
@@ -24,6 +29,7 @@ variable "aws_instance_type" {
 
 variable "aws_subnet_id" {
   description = "The subnet-id to be used for the instance"
+  default = "subnet-00000001"
 }
 
 variable "ssh_public_key" {
@@ -33,6 +39,7 @@ variable "ssh_public_key" {
 
 variable "hosted_zone" {
   description = "Hosted zone to be used for the alias"
+  default = "easyploy.click"
 }
 
 variable "hosted_zone_private" {
